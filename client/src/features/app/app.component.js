@@ -8,7 +8,6 @@ const googleMapsAPIKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 if (!googleMapsAPIKey) throw new Error("googleMapsAPIKey environment variable required");
 export const locations = ["park", "coffee shop", "jungle"];
 
-
 export class App extends Component {
     componentDidMount() {
       apiService
@@ -28,9 +27,10 @@ export class App extends Component {
       return (
         <div className="App">
           <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
+            <img src={logo} className="App-logo" alt="logo"/>
             <h1 className="App-title">House of A11yCats</h1>
           </header>
+
           <p className="App-intro">
             To get started, edit <code>src/App.js</code> and save to reload.
           </p>
