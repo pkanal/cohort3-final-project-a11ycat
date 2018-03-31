@@ -6,6 +6,7 @@ import { AutoCompleteListContainer } from "../auto-complete-list/auto-complete-l
 import { LocationRatingContainer } from "../location-rating/location-rating.container";
 import { GoogleMapContainer } from "../google-map/google-map.container";
 import { Header } from "../../ui-kit/header";
+import { DbFeedback } from "../database-feedback/feedback.component";
 
 export const defaultLocations = ["park", "coffee shop", "jungle"];
 
@@ -27,8 +28,9 @@ export class App extends Component {
     const showLocations =
       listLocations.length > 0 ? listLocations : defaultLocations;
     return (
-      <div className="App">
+      <div className="App">   
         <Header headerText={"A11yCatz"} />
+        <DbFeedback/>
         <ul>
           {showLocations.map((location, index) => (
             <ListItem key={index} locationName={location} />
@@ -50,6 +52,7 @@ export class App extends Component {
           <br />
           <LocationRatingContainer />
         </div>
+
       </div>
     );
   }
