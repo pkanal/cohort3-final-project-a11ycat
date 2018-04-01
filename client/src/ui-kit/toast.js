@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import { variables } from "./variables";
-import React from "react";
+import React, {Component} from "react";
 
 const StyledToast = styled.div`
 	position:fixed;
@@ -44,33 +44,38 @@ const StyledToast = styled.div`
 	    content: "✘";
 	  }   
   `}
-
 `;
 
-	const disappear = (e) => {
-		console.log(e.target);
+class Toast extends Component {
+
+	constructor(props) {
+    super(props);
+    this.state = {look: true};
+  }
+
+	disappear = (e) => {
+		this.setState({look:false})
 	};
 
-export const Toast = (props) => {
-	return (
-		<StyledToast onClick={disappear} type={props.type} role="dialog" tabIndex="0" aria-live="assertive">
-			{props.children}
-		</StyledToast>
-	)
-}
+	componentDidMount() {
+	   setTimeout(this.disappear, 3000)
+	};
 
+	render(){
+		if (this.state.look) {
+			return (
+				<StyledToast 
+					onClick={this.disappear} 
+					type={this.props.type} 
+					role="dialog" 
+					tabIndex="0" 
+					aria-live="assertive">
+					{this.props.children}
+				</StyledToast>
+			)					
+		}
+		else return null;
+	}
+};
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+export default Toast;

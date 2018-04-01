@@ -6,7 +6,7 @@ import { AutoCompleteListContainer } from "../auto-complete-list/auto-complete-l
 import { LocationRatingContainer } from "../location-rating/location-rating.container";
 import { GoogleMapContainer } from "../google-map/google-map.container";
 import { Header } from "../../ui-kit/header";
-import { DbFeedback } from "../database-feedback/feedback.component";
+import { DatabaseFeedbackContainer } from "../database-feedback/database-feedback.container";
 
 export const defaultLocations = ["park", "coffee shop", "jungle"];
 
@@ -30,7 +30,7 @@ export class App extends Component {
     return (
       <div className="App">   
         <Header headerText={"A11yCatz"} />
-        <DbFeedback/>
+        <DatabaseFeedbackContainer/>
         <ul>
           {showLocations.map((location, index) => (
             <ListItem key={index} locationName={location} />
